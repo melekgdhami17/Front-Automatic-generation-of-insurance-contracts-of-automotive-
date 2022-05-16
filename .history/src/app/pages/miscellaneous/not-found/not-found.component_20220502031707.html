@@ -1,0 +1,54 @@
+<ng-template #content let-modal>
+  <ng-container *ngIf="lire">
+    <div class="modal-body">
+      <iframe width="100%" height="870" [src]="document.name"></iframe>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="ajouter">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Ajout des documents</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <form>
+        <div class="form-group">
+          <label for="dateOfBirth">Titre du document </label>
+          <div class="input-group">
+            <input [(ngModel)]="doc" class="form-control" placeholder="Document Name" name="dp" ngbDatepicker
+              #dp="ngbDatepicker">
+          </div>
+        </div>
+      </form>
+      
+      <form>
+        <app-drag (fileuploaded)="getFile($event)" [multiple]="false"
+          [acceptTypes]="['application/pdf','image/jpeg','image/gif','image/png']">
+
+        </app-drag>
+
+      </form>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button"  (click)="ajoutDocument()"
+        (click)="modal.close('Save click')">Ajouter</button>
+    </div>
+  </ng-container>
+
+</ng-template>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-body>
+        <div class="content-block__effect">
+          <button class="button button4" *ngIf="test" (click)="openn(content)"
+            (click)=" ajouter=true;lire=false">Ajouter</button>
+          <hr>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

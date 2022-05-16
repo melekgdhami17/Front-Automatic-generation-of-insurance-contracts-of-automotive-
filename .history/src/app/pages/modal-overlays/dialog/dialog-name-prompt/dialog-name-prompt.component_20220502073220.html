@@ -1,0 +1,12 @@
+<ng-container *ngIf="lire">
+  <nb-card>
+    <nb-card-header>Entrer la carte CIN</nb-card-header>
+    <nb-card-body>
+      <input type="file" id="file" name="myfile"><br><br>
+    </nb-card-body>
+    <nb-card-footer>
+      <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="open()" (click)="cancel()" (click)="getFile($event)">Next</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-container>

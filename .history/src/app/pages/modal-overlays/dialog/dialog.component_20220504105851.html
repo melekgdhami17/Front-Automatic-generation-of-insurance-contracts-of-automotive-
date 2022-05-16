@@ -1,0 +1,96 @@
+<div class="row">
+  
+
+  <div class="col-md-12 col-lg-6 col-xxxl-3">
+    <nb-card class="form-input-card">
+      <nb-card-header>Ajouter un contrat</nb-card-header>
+      <nb-card-body class="result-from-dialog">
+        <button nbButton (click)="cin=true;gray=false;grayBack=false">Appuiyez pour ajouter les documents </button>
+        <br>
+        
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<nb-card *ngIf="cin">
+  <nb-stepper orientation="horizontal">
+    <nb-step [label]="labelOne">
+      <ng-template #labelOne>First step</ng-template>
+      <h3>Step content #1</h3>
+      <button nbButton disabled nbStepperNext>prev</button>
+      <button nbButton nbStepperNext>next</button>
+    </nb-step>
+  </nb-stepper>
+  <nb-card-header>Entrer la carte CIN</nb-card-header>
+  <nb-card-body>
+    <input type="file" id="file" (change)="getFile($event)" accept=".png,.jpg,.jpeg" name="myfile"><br><br>
+  </nb-card-body>
+  <nb-card-footer>
+    <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+    <button nbButton status="success" (click)="cin=false;gray=true;grayBack=false"  (click)="getFile($event)">Next</button>
+  </nb-card-footer>
+</nb-card>
+
+  <nb-card *ngIf="gray" >
+    <nb-card-header>Entrer la face frontale du carte grise</nb-card-header>
+    <nb-card-body>
+      <input type="file" id="file" name="myfile"><br><br>
+    </nb-card-body>
+    <nb-card-footer>
+      <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="cin=false;gray=false;grayBack=true" (click)="getFile($event)">Next</button>
+    </nb-card-footer>
+  </nb-card>
+
+  <nb-card *ngIf="grayBack" >
+    <nb-card-header>Entrer la face arriere du carte grise</nb-card-header>
+    <nb-card-body>
+      <input type="file" id="file" name="myfile"><br><br>
+    </nb-card-body>
+    <nb-card-footer>
+      <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton status="success" (click)="open()" (click)="cin=false;gray=false;grayBack=false" (click)="getFile($event)">Next</button>
+    </nb-card-footer>
+  </nb-card>
+  <nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-body>
+      <nb-stepper orientation="horizontal">
+        <nb-step >
+          <ng-template #labelOne>First step</ng-template>
+          <h3>Step content #1</h3>
+          <button nbButton disabled nbStepperNext>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step >
+          <ng-template #labelTwo>Second step</ng-template>
+          <h3>Step content #2</h3>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step label="Third step">
+          <h3>Step content #3</h3>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </nb-step>
+        <nb-step [label]="labelFour">
+          <ng-template #labelFour>Fourth step</ng-template>
+          <h3>Step content #4</h3>
+          <button nbButton nbStepperPrevious>prev</button>
+          <button nbButton disabled nbStepperNext>next</button>
+        </nb-step>
+      </nb-stepper>
+    </nb-card-body>
+  </nb-card>
+  
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Template Dialog</nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+      <button nbButton (click)="ref.close()">Close Dialog</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+
+

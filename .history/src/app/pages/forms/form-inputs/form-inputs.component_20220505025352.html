@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Carte d'identité</nb-card-header>
+      <nb-card-body>
+        <input [(ngModel)]="id" value ={{cin}} type="text" nbInput fullWidth placeholder="identifiant">
+        <div class="full-name-inputs">
+          <input [(ngModel)]="firstName" value ={{firstName1}} type="text" nbInput fullWidth placeholder="Prenom">
+          <input [(ngModel)]="lastName" value ={{lastName1}} type="text" nbInput fullWidth placeholder="Nom">
+        </div>
+        <input [(ngModel)]="otherName" value ={{otherName1}} type="text" nbInput fullWidth placeholder="Troisieme nom ">
+        <nb-card>
+          <nb-card-header>Date de naissance</nb-card-header>
+          <nb-card-body>
+            <input [(ngModel)]="birthDate" value ={{birthDate1}} nbInput placeholder="Date" [nbDatepicker]="rangepicker">
+            <nb-rangepicker #rangepicker></nb-rangepicker>
+          </nb-card-body>
+        </nb-card>
+        <input [(ngModel)]="birthPlace" value ={{birthPlace1}} type="text" nbInput fullWidth shape="semi-round" placeholder="Adresse de naissance">
+        
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Carte Grise</nb-card-header>
+      <nb-card-body>
+        <div class="full-name-inputs">
+          <input [(ngModel)]="gender" value ={{gender1}} type="text" nbInput fullWidth placeholder="Genre">
+          <input [(ngModel)]="type" value ={{type1}} type="text" nbInput fullWidth placeholder="Type Constructeur">
+        </div>
+        <input [(ngModel)]="serie" value ={{serie1}} type="text" nbInput fullWidth placeholder="Numéro serie de type ">
+        <nb-card>
+          <nb-card-header>DPMC</nb-card-header>
+          <nb-card-body>
+            <input [(ngModel)]="date" value ={{date1}} nbInput placeholder="Date" [nbDatepicker]="rangepicker">
+            <nb-rangepicker #rangepicker></nb-rangepicker>
+          </nb-card-body>
+        </nb-card>
+        <input [(ngModel)]="typeComm" value ={{typeComm1}}  type="text" nbInput fullWidth shape="semi-round" placeholder="Type commercial">
+        <input [(ngModel)]="constructor" value ={{constructor1}} type="text" nbInput fullWidth shape="semi-round" placeholder="Constructeur">
+        <input [(ngModel)]="affect" value ={{affect1}} type="text" nbInput fullWidth shape="semi-round" placeholder="Affectation">
+        <input [(ngModel)]="imm" value ={{imm1}} type="text" nbInput fullWidth shape="semi-round" placeholder="Numéro d'immatriculation">
+        <input [(ngModel)]="portes" value ={{portes1}} type="text" nbInput fullWidth shape="semi-round" placeholder="carosserie">
+        <input [(ngModel)]="place" value ={{place1}} type="text" nbInput fullWidth shape="semi-round" placeholder="Nombres de places">
+        <input [(ngModel)]="energie" value ={{energie1}} type="text" nbInput fullWidth shape="semi-round" placeholder="energie">
+        <input [(ngModel)]="puissance" value ={{puissance1}} type="text" nbInput fullWidth shape="semi-round" placeholder="puissance fiscale">
+        <input [(ngModel)]="poids" value ={{poids1}} type="text" nbInput fullWidth shape="semi-round" placeholder="PV">
+
+        <div class="demo-items">
+          <nb-radio-group [(value)]="radioGroupValue">
+            <nb-radio name="test"
+              [value]="'This is value 1'">
+              Pack sécurité
+            </nb-radio>
+            <nb-radio name="test"
+              [value]="'This is value 2'">
+              Pack sécurité +
+            </nb-radio>
+            <nb-radio name="test"
+              [value]="'This is value 3'">
+              Pack sérenité
+            </nb-radio>
+          </nb-radio-group>
+        </div>
+       
+        
+      </nb-card-body>
+    </nb-card>
+
+    
+    <button nbButton hero status="primary" (click)="btnClick()">Next !</button>
+    
+  </div>
+</div>
